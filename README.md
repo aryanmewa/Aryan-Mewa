@@ -57,7 +57,7 @@ Fonts (Cormorant Garamond, Inter) load from Google Fonts with native fallbacks.
 
 ## Dark mode
 
-The round sun/moon button at the right of the menu bar switches between light and dark. The first visit follows the visitor's system setting, and their choice is remembered in their browser. Dark mode keeps the same fonts, layout and artwork; the palette settles into slate blue and the illustrations are dimmed. The colours live in the `:root[data-theme="dark"]` block at the end of `assets/style.css`.
+The round sun/moon button at the right of the menu bar switches between light and dark. The site always opens in the light (daylight) theme, whatever the visitor's system setting; if a visitor switches to dark, their choice is remembered in their browser. Dark mode keeps the same fonts, layout and artwork; the palette settles into slate blue and the illustrations are dimmed. The colours live in the `:root[data-theme="dark"]` block at the end of `assets/style.css`.
 
 ## Social links
 
