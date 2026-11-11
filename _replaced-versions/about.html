@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About & Academics — Aryan Mewa | IIT Jodhpur</title>
+  <meta name="description" content="Academic background and personal biography of Aryan Mewa — Integrated B.Sc.–B.Ed. in Physics at IIT Jodhpur.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Lora', 'Georgia', 'serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            jp: ['"Zen Kaku Gothic New"', 'sans-serif'],
+          },
+          colors: {
+            ink: {
+              900: '#23201D',
+              800: '#38332E',
+              600: '#5E574F',
+              400: '#8C8276',
+              200: '#D9D3C7',
+              100: '#EBE5D8',
+              50: '#FAF8F5',
+            },
+            asv: {
+              sky: '#3F6E8C',
+              rose: '#C97D7D',
+              sage: '#528263',
+              amber: '#BA8436',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::selection { background: #E8DFD3; color: #23201D; }
+    body {
+      background-color: #FAF8F5;
+      background-image: 
+        radial-gradient(circle at 12% 15%, rgba(214, 228, 238, 0.50) 0%, transparent 45%),
+        radial-gradient(circle at 88% 22%, rgba(245, 230, 232, 0.45) 0%, transparent 40%),
+        radial-gradient(circle at 48% 60%, rgba(215, 229, 220, 0.35) 0%, transparent 50%),
+        radial-gradient(circle at 82% 88%, rgba(251, 238, 215, 0.45) 0%, transparent 45%);
+      background-attachment: fixed;
+      color: #38332E;
+      font-family: 'Inter', sans-serif;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    .film-grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.024;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+    #ambient-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 2; }
+    .hairline { border-top: 1px solid rgba(217, 211, 199, 0.65); }
+    .nav-glass {
+      background: rgba(250, 248, 245, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(217, 211, 199, 0.7);
+    }
+  </style>
+</head>
+<body class="relative min-h-screen">
+
+  <div class="film-grain"></div>
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- NAVIGATION BAR -->
+  <header class="fixed top-4 sm:top-6 inset-x-0 z-40 px-4 sm:px-8 pointer-events-none">
+    <div class="max-w-5xl mx-auto flex items-center justify-between pointer-events-auto">
+      <a href="index.html" class="flex items-baseline gap-2.5 px-4 py-2 rounded-full nav-glass shadow-sm hover:border-ink-400 transition-colors">
+        <span class="font-serif font-medium text-sm text-ink-900">Aryan Mewa</span>
+        <span class="text-[11px] font-sans text-ink-400 hidden sm:inline">IIT Jodhpur</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1 px-4 py-1.5 rounded-full nav-glass shadow-sm text-xs font-medium text-ink-600">
+        <a href="index.html" class="px-3 py-1.5 hover:text-ink-900 hover:border-b hover:border-ink-400 transition-all">Home</a>
+        <a href="about.html" class="px-3 py-1.5 text-ink-900 border-b border-ink-900 font-medium">About</a>
+        <a href="teaching.html" class="px-3 py-1.5 hover:text-ink-900 hover:border-b hover:border-ink-400 transition-all">Teaching</a>
+        <a href="projects.html" class="px-3 py-1.5 hover:text-ink-900 hover:border-b hover:border-ink-400 transition-all">Projects</a>
+        <a href="creative.html" class="px-3 py-1.5 hover:text-ink-900 hover:border-b hover:border-ink-400 transition-all">Creative</a>
+        <a href="contact.html" class="px-3 py-1.5 hover:text-ink-900 hover:border-b hover:border-ink-400 transition-all">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="contact.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full nav-glass text-xs font-medium text-ink-800 hover:text-asv-sky shadow-sm transition-colors">
+          <span class="w-1.5 h-1.5 rounded-full bg-asv-sage"></span>
+          <span>Inquire</span>
+        </a>
+        <button id="mobile-menu-btn" aria-label="Toggle navigation menu" class="md:hidden flex items-center gap-2 px-3.5 py-2 rounded-full nav-glass text-xs font-medium text-ink-800 shadow-sm">
+          <span class="w-3.5 h-2.5 flex flex-col justify-between">
+            <span class="w-full h-0.5 bg-ink-800"></span>
+            <span class="w-2.5 h-0.5 bg-ink-800"></span>
+            <span class="w-full h-0.5 bg-ink-800"></span>
+          </span>
+          <span>Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-ink-900/30 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+
+  <!-- Mobile Drawer -->
+  <aside id="mobile-drawer" class="fixed top-0 right-0 bottom-0 w-72 max-w-[80vw] bg-[#FAF8F5] border-l border-ink-200 z-50 transform translate-x-full transition-transform duration-300 ease-out p-6 flex flex-col justify-between md:hidden">
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-ink-200 mb-6">
+        <div>
+          <span class="font-serif font-medium text-base text-ink-900">Aryan Mewa</span>
+          <span class="block text-[11px] text-ink-400 font-jp">目録 — 学術背景</span>
+        </div>
+        <button id="mobile-close-btn" class="p-1 text-ink-400 hover:text-ink-900">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <nav class="space-y-3 text-sm text-ink-700">
+        <a href="index.html" class="block py-1 hover:text-asv-sky transition-colors">01 Home</a>
+        <a href="about.html" class="block py-1 font-semibold text-ink-900">02 About & Academics</a>
+        <a href="teaching.html" class="block py-1 hover:text-asv-sky transition-colors">03 Teaching & Pedagogy</a>
+        <a href="projects.html" class="block py-1 hover:text-asv-sky transition-colors">04 Projects & Research</a>
+        <a href="creative.html" class="block py-1 hover:text-asv-sky transition-colors">05 Creative & Leadership</a>
+        <a href="contact.html" class="block py-1 hover:text-asv-sky transition-colors">06 Contact & CV</a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-ink-200 text-xs text-ink-400">
+      <span class="block text-ink-400 mb-1">Direct Correspondence:</span>
+      <a href="mailto:aryanmewawork@gmail.com" class="font-mono text-ink-800 hover:underline">aryanmewawork@gmail.com</a>
+    </div>
+  </aside>
+
+  <!-- MAIN ABOUT CONTENT: Completely Flat & Open -->
+  <main class="max-w-4xl mx-auto px-6 sm:px-10 lg:px-12 pt-32 sm:pt-44 pb-36">
+
+    <!-- PAGE HEADER -->
+    <div class="mb-20">
+      <div class="flex items-baseline gap-3 text-xs font-mono text-ink-400 mb-2">
+        <span>01 / BACKGROUND</span>
+        <span>•</span>
+        <span class="font-jp text-[11px]">私について — 学術背景</span>
+      </div>
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-ink-900 tracking-tight leading-tight mb-4">
+        About Me & Academic Profile
+      </h1>
+      <p class="text-sm sm:text-base text-ink-600 max-w-2xl leading-relaxed">
+        Undergraduate student in Physics at the Indian Institute of Technology Jodhpur, dedicated to translating theoretical physical models into hands-on research and accessible educational media.
+      </p>
+    </div>
+
+    <!-- 01. NARRATIVE PROFILE -->
+    <section class="py-14 hairline">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+        <div class="md:col-span-4">
+          <span class="text-xs font-mono text-ink-400 block mb-1">NARRATIVE</span>
+          <h2 class="font-serif text-2xl font-normal text-ink-900 mb-2">Personal Biography</h2>
+          <span class="text-xs font-jp text-ink-400 block mb-4">学術への志向と表現</span>
+          <p class="text-xs text-ink-600 leading-relaxed">
+            The intersection of analytical physical inquiry, laboratory investigation, and cinematic media.
+          </p>
+        </div>
+
+        <div class="md:col-span-8 space-y-6 text-ink-700 text-sm sm:text-base leading-relaxed">
+          <p>
+            I am an Integrated B.Sc.–B.Ed. student in Physics at the <strong class="text-ink-900 font-medium">Indian Institute of Technology Jodhpur (IIT Jodhpur)</strong>, driven by a deep interest in physical sciences, pedagogy, creative media, and educational technology. My work lies at the intersection of scientific inquiry, educational resource design, and visual storytelling.
+          </p>
+          <p>
+            My background spans classical and modern physics, mathematical methods, and contemporary educational theories. Beyond the laboratory and classroom, I explore filmmaking, photography, video editing, and interactive multimedia. I aim to connect theoretical physics with practical experiences, making scientific learning intuitive, inclusive, and engaging through hands-on experimentation, visual narrative, and technology.
+          </p>
+
+          <!-- Cinematic anime subtitle style quote -->
+          <blockquote class="my-6 pl-6 border-l-2 border-asv-rose/40 italic font-serif text-base sm:text-lg text-ink-800 leading-relaxed">
+            “Science education is most impactful when complex, abstract ideas are translated into clear, engaging experiences that make discovery intuitive and accessible for all learners.”
+          </blockquote>
+
+          <p>
+            My creative interests in photography and filmmaking inform my pedagogical perspective: good visual storytelling and good science teaching both rely on visual economy—clearing away extraneous distraction so the underlying physical phenomenon can be observed with clarity.
+          </p>
+
+          <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs border-t border-ink-200/60 mt-6">
+            <div>
+              <span class="text-ink-400 block font-mono text-[11px]">INSTITUTION</span>
+              <span class="text-ink-900 font-medium mt-0.5 block">IIT Jodhpur</span>
+            </div>
+            <div>
+              <span class="text-ink-400 block font-mono text-[11px]">DEGREE</span>
+              <span class="text-ink-900 font-medium mt-0.5 block">Integrated B.Sc.–B.Ed.</span>
+            </div>
+            <div>
+              <span class="text-ink-400 block font-mono text-[11px]">DISCIPLINE</span>
+              <span class="text-ink-900 font-medium mt-0.5 block">Physics & Pedagogy</span>
+            </div>
+            <div>
+              <span class="text-ink-400 block font-mono text-[11px]">FOCUS</span>
+              <span class="text-ink-900 font-medium mt-0.5 block">Nanotech & Media</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. ACADEMIC PROFILE & DEGREE TRACKS -->
+    <section class="py-14 hairline">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+        <div class="md:col-span-4">
+          <span class="text-xs font-mono text-ink-400 block mb-1">CURRICULUM</span>
+          <h2 class="font-serif text-2xl font-normal text-ink-900 mb-2">Degree & Coursework</h2>
+          <span class="text-xs font-jp text-ink-400 block mb-4">学術プログラムと専攻科目</span>
+          <p class="text-xs text-ink-600 leading-relaxed">
+            Admitted through JEE Advanced to pursue undergraduate studies in Physics and teacher education at IIT Jodhpur.
+          </p>
+        </div>
+
+        <div class="md:col-span-8 space-y-10">
+          
+          <div class="pb-6 border-b border-ink-200/80">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+              <h3 class="font-serif text-xl sm:text-2xl font-medium text-ink-900">
+                Integrated Bachelor of Science & Bachelor of Education
+              </h3>
+              <span class="font-mono text-xs text-ink-400">2024 – 2028 (Expected)</span>
+            </div>
+            <p class="text-sm text-ink-600 mt-1">
+              Specialization in Physics • Indian Institute of Technology Jodhpur
+            </p>
+          </div>
+
+          <!-- Track A: Physics & Mathematics -->
+          <div>
+            <div class="flex items-baseline justify-between mb-4">
+              <h4 class="text-xs font-mono uppercase tracking-wider text-ink-900 font-semibold">
+                Track A: Physical Sciences & Applied Mathematics
+              </h4>
+              <span class="text-xs text-ink-400 font-jp">物理・数理科学</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-xs text-ink-700">
+              <div class="py-2 border-b border-ink-200/50 flex justify-between">
+                <span>Classical Mechanics & Kinematics</span>
+                <span class="text-ink-400 font-mono">Foundations</span>
+              </div>
+              <div class="py-2 border-b border-ink-200/50 flex justify-between">
+                <span>Electromagnetic Theory & AC Circuits</span>
+                <span class="text-ink-400 font-mono">Advanced</span>
+              </div>
+              <div class="py-2 border-b border-ink-200/50 flex justify-between">
+                <span>Optics, Wave Phenomena & Interference</span>
+                <span class="text-ink-400 font-mono">Theory + Lab</span>
+              </div>
+              <div class="py-2 border-b border-ink-200/50 flex justify-between">
+                <span>Solid-State & Semiconductor Physics</span>
+                <span class="text-ink-400 font-mono">Materials</span>
+              </div>
+              <div class="py-2 border-b border-ink-200/50 flex justify-between">
+                <span>Multivariable Calculus & Differential Equations</span>
+                <span class="text-ink-400 font-mono">Analysis</span>
+              </div>
+              <div class="py-2 border-b border-ink-200/50 flex justify-between">
+                <span>Vector Calculus & Mathematical Methods</span>
+                <span class="text-ink-400 font-mono">Applied Math</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Track B: Pedagogy & Education -->
+          <div>
+            <div class="flex items-baseline justify-between mb-4">
+              <h4 class="text-xs font-mono uppercase tracking-wider text-ink-900 font-semibold">
+                Track B: Pedagogy, Cognition & Educational Technology
+              </h4>
+              <span class="text-xs text-ink-400 font-jp">教育理論・認知科学</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-xs text-ink-700">
+              <div class="py-2 border-b border-ink-200/50 flex justify-between">
+                <span>Science & Mathematics Pedagogy</span>
+                <span class="text-ink-400 font-mono">Core Methods</span>
+              </div>
+              <div class="py-2 border-b border-ink-200/50 flex justify-between">
+                <span>Philosophy of Education & Curriculum Framing</span>
+                <span class="text-ink-400 font-mono">Theory</span>
+              </div>
+              <div class="py-2 border-b border-ink-200/50 flex justify-between">
+                <span>Teaching–Learning Resource (TLR) Development</span>
+                <span class="text-ink-400 font-mono">Design</span>
+              </div>
+              <div class="py-2 border-b border-ink-200/50 flex justify-between">
+                <span>Cognitive Theory of Multimedia Learning (CTML)</span>
+                <span class="text-ink-400 font-mono">Instructional</span>
+              </div>
+              <div class="py-2 border-b border-ink-200/50 flex justify-between">
+                <span>Bloom’s Revised Taxonomy & Learning Outcomes</span>
+                <span class="text-ink-400 font-mono">Assessment</span>
+              </div>
+              <div class="py-2 border-b border-ink-200/50 flex justify-between">
+                <span>Polya’s Problem-Solving Cycle in STEM</span>
+                <span class="text-ink-400 font-mono">Heuristics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. LEARNING & DEVELOPMENT -->
+    <section class="py-14 hairline">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+        <div class="md:col-span-4">
+          <span class="text-xs font-mono text-ink-400 block mb-1">HORIZONS</span>
+          <h2 class="font-serif text-2xl font-normal text-ink-900 mb-2">Learning Pursuits</h2>
+          <span class="text-xs font-jp text-ink-400 block mb-4">継続的探求・研究計画</span>
+          <p class="text-xs text-ink-600 leading-relaxed">
+            Expanding computational simulation and hands-on laboratory apparatus for low-resource schools.
+          </p>
+        </div>
+
+        <div class="md:col-span-8 space-y-4">
+          <div class="py-3 border-b border-ink-200/50 flex items-start gap-4">
+            <span class="font-mono text-xs text-ink-400 mt-1">01</span>
+            <div>
+              <h3 class="font-serif text-base font-medium text-ink-900">Cognitive Theory of Multimedia Learning (CTML) in Physics</h3>
+              <p class="text-xs text-ink-600 leading-relaxed mt-1">
+                Applying Richard Mayer's multimedia design principles (modality, signaling, and temporal contiguity) to produce video modules for advanced wave mechanics and optical phenomena.
+              </p>
+            </div>
+          </div>
+          <div class="py-3 border-b border-ink-200/50 flex items-start gap-4">
+            <span class="font-mono text-xs text-ink-400 mt-1">02</span>
+            <div>
+              <h3 class="font-serif text-base font-medium text-ink-900">Low-Cost Tabletop Demonstration Apparatus</h3>
+              <p class="text-xs text-ink-600 leading-relaxed mt-1">
+                Prototyping low-cost physics demonstration kits using simple household materials and smartphone sensors, ensuring resource-limited schools can conduct empirical experiments.
+              </p>
+            </div>
+          </div>
+          <div class="py-3 border-b border-ink-200/50 flex items-start gap-4">
+            <span class="font-mono text-xs text-ink-400 mt-1">03</span>
+            <div>
+              <h3 class="font-serif text-base font-medium text-ink-900">Computational Simulation in Python</h3>
+              <p class="text-xs text-ink-600 leading-relaxed mt-1">
+                Extending numerical modeling in Python (NumPy, Matplotlib) to simulate time-dependent wavepacket diffusion, resonance in coupled oscillators, and electromagnetic field geometries.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-16 hairline flex flex-col sm:flex-row items-baseline justify-between gap-4 text-xs font-mono text-ink-400">
+      <div>
+        <span class="font-serif font-medium text-ink-800 text-sm block">Aryan Mewa</span>
+        <span>Integrated B.Sc.–B.Ed. in Physics • IIT Jodhpur</span>
+      </div>
+      <div class="text-right">
+        <span class="font-jp block text-ink-400 text-[11px]">聲の形 — 光と静けさの記録</span>
+        <span>© 2026 Aryan Mewa. All rights reserved.</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileCloseBtn = document.getElementById('mobile-close-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    function openMobileMenu() { mobileDrawer.classList.remove('translate-x-full'); mobileOverlay.classList.remove('opacity-0', 'pointer-events-none'); document.body.style.overflow = 'hidden'; }
+    function closeMobileMenu() { mobileDrawer.classList.add('translate-x-full'); mobileOverlay.classList.add('opacity-0', 'pointer-events-none'); document.body.style.overflow = ''; }
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+    if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeMobileMenu);
+    if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileMenu);
+
+    (function initLightMotes() {
+      const canvas = document.getElementById('ambient-canvas'); if (!canvas) return;
+      const ctx = canvas.getContext('2d'); let width, height, particles = [];
+      function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+      window.addEventListener('resize', resize); resize();
+      const colors = ['rgba(214,228,238,0.40)', 'rgba(236,202,201,0.35)', 'rgba(215,229,220,0.30)', 'rgba(251,238,215,0.45)'];
+      for (let i = 0; i < 22; i++) {
+        particles.push({ x: Math.random() * width, y: Math.random() * height, radius: Math.random() * 2.2 + 0.8, color: colors[Math.floor(Math.random() * colors.length)], vx: (Math.random() - 0.5) * 0.22, vy: -Math.random() * 0.35 - 0.1 });
+      }
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => { p.x += p.vx; p.y += p.vy; if (p.y < -10) { p.y = height + 10; p.x = Math.random() * width; } if (p.x < -10) p.x = width + 10; if (p.x > width + 10) p.x = -10; ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); ctx.fillStyle = p.color; ctx.fill(); });
+        requestAnimationFrame(render);
+      }
+      render();
+    })();
+  </script>
+</body>
+</html>

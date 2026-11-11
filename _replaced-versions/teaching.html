@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching & Pedagogy — Aryan Mewa | IIT Jodhpur</title>
+  <meta name="description" content="Educational philosophy, scientific pedagogy, and subject knowledge of Aryan Mewa — Integrated B.Sc.–B.Ed. at IIT Jodhpur.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Lora', 'Georgia', 'serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            jp: ['"Zen Kaku Gothic New"', 'sans-serif'],
+          },
+          colors: {
+            ink: {
+              900: '#23201D',
+              800: '#38332E',
+              600: '#5E574F',
+              400: '#8C8276',
+              200: '#D9D3C7',
+              100: '#EBE5D8',
+              50: '#FAF8F5',
+            },
+            asv: {
+              sky: '#3F6E8C',
+              rose: '#C97D7D',
+              sage: '#528263',
+              amber: '#BA8436',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::selection { background: #E8DFD3; color: #23201D; }
+    body {
+      background-color: #FAF8F5;
+      background-image: 
+        radial-gradient(circle at 12% 15%, rgba(214, 228, 238, 0.50) 0%, transparent 45%),
+        radial-gradient(circle at 88% 22%, rgba(245, 230, 232, 0.45) 0%, transparent 40%),
+        radial-gradient(circle at 48% 60%, rgba(215, 229, 220, 0.35) 0%, transparent 50%),
+        radial-gradient(circle at 82% 88%, rgba(251, 238, 215, 0.45) 0%, transparent 45%);
+      background-attachment: fixed;
+      color: #38332E;
+      font-family: 'Inter', sans-serif;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    .film-grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.024;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+    #ambient-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 2; }
+    .hairline { border-top: 1px solid rgba(217, 211, 199, 0.65); }
+    .nav-glass {
+      background: rgba(250, 248, 245, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(217, 211, 199, 0.7);
+    }
+  </style>
+</head>
+<body class="relative min-h-screen">
+
+  <div class="film-grain"></div>
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- NAVIGATION BAR -->
+  <header class="fixed top-4 sm:top-6 inset-x-0 z-40 px-4 sm:px-8 pointer-events-none">
+    <div class="max-w-5xl mx-auto flex items-center justify-between pointer-events-auto">
+      <a href="index.html" class="flex items-baseline gap-2.5 px-4 py-2 rounded-full nav-glass shadow-sm hover:border-ink-400 transition-colors">
+        <span class="font-serif font-medium text-sm text-ink-900">Aryan Mewa</span>
+        <span class="text-[11px] font-sans text-ink-400 hidden sm:inline">IIT Jodhpur</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1 px-4 py-1.5 rounded-full nav-glass shadow-sm text-xs font-medium text-ink-600">
+        <a href="index.html" class="px-3 py-1.5 hover:text-ink-900 hover:border-b hover:border-ink-400 transition-all">Home</a>
+        <a href="about.html" class="px-3 py-1.5 hover:text-ink-900 hover:border-b hover:border-ink-400 transition-all">About</a>
+        <a href="teaching.html" class="px-3 py-1.5 text-ink-900 border-b border-ink-900 font-medium">Teaching</a>
+        <a href="projects.html" class="px-3 py-1.5 hover:text-ink-900 hover:border-b hover:border-ink-400 transition-all">Projects</a>
+        <a href="creative.html" class="px-3 py-1.5 hover:text-ink-900 hover:border-b hover:border-ink-400 transition-all">Creative</a>
+        <a href="contact.html" class="px-3 py-1.5 hover:text-ink-900 hover:border-b hover:border-ink-400 transition-all">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <a href="contact.html" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full nav-glass text-xs font-medium text-ink-800 hover:text-asv-sky shadow-sm transition-colors">
+          <span class="w-1.5 h-1.5 rounded-full bg-asv-sage"></span>
+          <span>Inquire</span>
+        </a>
+        <button id="mobile-menu-btn" aria-label="Toggle navigation menu" class="md:hidden flex items-center gap-2 px-3.5 py-2 rounded-full nav-glass text-xs font-medium text-ink-800 shadow-sm">
+          <span class="w-3.5 h-2.5 flex flex-col justify-between">
+            <span class="w-full h-0.5 bg-ink-800"></span>
+            <span class="w-2.5 h-0.5 bg-ink-800"></span>
+            <span class="w-full h-0.5 bg-ink-800"></span>
+          </span>
+          <span>Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-ink-900/30 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+
+  <!-- Mobile Drawer -->
+  <aside id="mobile-drawer" class="fixed top-0 right-0 bottom-0 w-72 max-w-[80vw] bg-[#FAF8F5] border-l border-ink-200 z-50 transform translate-x-full transition-transform duration-300 ease-out p-6 flex flex-col justify-between md:hidden">
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-ink-200 mb-6">
+        <div>
+          <span class="font-serif font-medium text-base text-ink-900">Aryan Mewa</span>
+          <span class="block text-[11px] text-ink-400 font-jp">目録 — 教育哲学</span>
+        </div>
+        <button id="mobile-close-btn" class="p-1 text-ink-400 hover:text-ink-900">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <nav class="space-y-3 text-sm text-ink-700">
+        <a href="index.html" class="block py-1 hover:text-asv-sky transition-colors">01 Home</a>
+        <a href="about.html" class="block py-1 hover:text-asv-sky transition-colors">02 About & Academics</a>
+        <a href="teaching.html" class="block py-1 font-semibold text-ink-900">03 Teaching & Pedagogy</a>
+        <a href="projects.html" class="block py-1 hover:text-asv-sky transition-colors">04 Projects & Research</a>
+        <a href="creative.html" class="block py-1 hover:text-asv-sky transition-colors">05 Creative & Leadership</a>
+        <a href="contact.html" class="block py-1 hover:text-asv-sky transition-colors">06 Contact & CV</a>
+      </nav>
+    </div>
+
+    <div class="pt-6 border-t border-ink-200 text-xs text-ink-400">
+      <span class="block text-ink-400 mb-1">Direct Correspondence:</span>
+      <a href="mailto:aryanmewawork@gmail.com" class="font-mono text-ink-800 hover:underline">aryanmewawork@gmail.com</a>
+    </div>
+  </aside>
+
+  <!-- MAIN TEACHING CONTENT: Completely Flat & Open -->
+  <main class="max-w-4xl mx-auto px-6 sm:px-10 lg:px-12 pt-32 sm:pt-44 pb-36">
+
+    <!-- PAGE HEADER -->
+    <div class="mb-20">
+      <div class="flex items-baseline gap-3 text-xs font-mono text-ink-400 mb-2">
+        <span>02 / PEDAGOGY</span>
+        <span>•</span>
+        <span class="font-jp text-[11px]">教育哲学・認知科学・教材設計</span>
+      </div>
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-ink-900 tracking-tight leading-tight mb-4">
+        Teaching & Educational Philosophy
+      </h1>
+      <p class="text-sm sm:text-base text-ink-600 max-w-2xl leading-relaxed">
+        Translating abstract physical models into intuitive, tactile, and multimodal learning experiences rooted in cognitive theory and active experimentation.
+      </p>
+    </div>
+
+    <!-- 01. EDUCATIONAL PHILOSOPHY & MANIFESTO -->
+    <section class="py-14 hairline">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+        <div class="md:col-span-4">
+          <span class="text-xs font-mono text-ink-400 block mb-1">MANIFESTO</span>
+          <h2 class="font-serif text-2xl font-normal text-ink-900 mb-2">Core Principles</h2>
+          <span class="text-xs font-jp text-ink-400 block mb-4">学びの本質と探究の精神</span>
+          <p class="text-xs text-ink-600 leading-relaxed">
+            Six foundational tenets guiding instructional practice, inquiry design, and classroom engagement.
+          </p>
+        </div>
+
+        <div class="md:col-span-8">
+          <p class="text-sm sm:text-base text-ink-700 leading-relaxed mb-8">
+            I believe genuine understanding in the physical sciences goes far beyond memorizing formulas and definitions. Effective education empowers students to ask questions, design experiments, analyze empirical evidence, and link abstract classroom concepts to real-world phenomena.
+          </p>
+
+          <!-- Flat Open List of Principles -->
+          <div class="divide-y divide-ink-200/70 border-y border-ink-200/70">
+            <div class="py-6 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline">
+              <span class="sm:col-span-1 font-mono text-xs text-asv-sky font-semibold">01</span>
+              <div class="sm:col-span-4">
+                <h3 class="font-serif text-base font-medium text-ink-900">Learning by Doing</h3>
+                <span class="text-[11px] font-mono text-ink-400 uppercase">Active Experimentation</span>
+              </div>
+              <p class="sm:col-span-7 text-xs sm:text-sm text-ink-600 leading-relaxed">
+                Fostering intuitive grasp through physical demonstrations, hands-on lab experiments, and tactile applications before introducing formal mathematical abstractions.
+              </p>
+            </div>
+
+            <div class="py-6 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline">
+              <span class="sm:col-span-1 font-mono text-xs text-asv-rose font-semibold">02</span>
+              <div class="sm:col-span-4">
+                <h3 class="font-serif text-base font-medium text-ink-900">Curiosity & Questioning</h3>
+                <span class="text-[11px] font-mono text-ink-400 uppercase">Inquiry-Based Learning</span>
+              </div>
+              <p class="sm:col-span-7 text-xs sm:text-sm text-ink-600 leading-relaxed">
+                Cultivating an open inquiry environment where questioning established assumptions, evaluating multiple models, and embracing cognitive doubt is celebrated as the engine of discovery.
+              </p>
+            </div>
+
+            <div class="py-6 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline">
+              <span class="sm:col-span-1 font-mono text-xs text-asv-sage font-semibold">03</span>
+              <div class="sm:col-span-4">
+                <h3 class="font-serif text-base font-medium text-ink-900">Scientific Thinking</h3>
+                <span class="text-[11px] font-mono text-ink-400 uppercase">Empirical Reasoning</span>
+              </div>
+              <p class="sm:col-span-7 text-xs sm:text-sm text-ink-600 leading-relaxed">
+                Developing structured habits of systematic observation, hypothesis testing, error analysis, and evidence-based argument rather than unquestioned rote compliance.
+              </p>
+            </div>
+
+            <div class="py-6 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline">
+              <span class="sm:col-span-1 font-mono text-xs text-asv-amber font-semibold">04</span>
+              <div class="sm:col-span-4">
+                <h3 class="font-serif text-base font-medium text-ink-900">Inclusive Education</h3>
+                <span class="text-[11px] font-mono text-ink-400 uppercase">Universal Design (UDL)</span>
+              </div>
+              <p class="sm:col-span-7 text-xs sm:text-sm text-ink-600 leading-relaxed">
+                Creating multimodal learning pathways that accommodate diverse cognitive abilities, varying learning paces, and educational backgrounds without diluting conceptual depth.
+              </p>
+            </div>
+
+            <div class="py-6 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline">
+              <span class="sm:col-span-1 font-mono text-xs text-asv-sky font-semibold">05</span>
+              <div class="sm:col-span-4">
+                <h3 class="font-serif text-base font-medium text-ink-900">Technology-Enhanced</h3>
+                <span class="text-[11px] font-mono text-ink-400 uppercase">Cognitive Multimedia</span>
+              </div>
+              <p class="sm:col-span-7 text-xs sm:text-sm text-ink-600 leading-relaxed">
+                Leveraging digital animations, interactive simulations, and computational thinking to visually unpack non-intuitive physics phenomena like electromagnetic wave polarization.
+              </p>
+            </div>
+
+            <div class="py-6 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 items-baseline">
+              <span class="sm:col-span-1 font-mono text-xs text-ink-400 font-semibold">06</span>
+              <div class="sm:col-span-4">
+                <h3 class="font-serif text-base font-medium text-ink-900">Real-World Connections</h3>
+                <span class="text-[11px] font-mono text-ink-400 uppercase">Contextualized Physics</span>
+              </div>
+              <p class="sm:col-span-7 text-xs sm:text-sm text-ink-600 leading-relaxed">
+                Connecting abstract mathematical models directly to everyday human experiences—from why leaves appear green under optical absorption to the mechanics of smartphone camera sensors.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. SUBJECT KNOWLEDGE CATALOG -->
+    <section class="py-14 hairline">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+        <div class="md:col-span-4">
+          <span class="text-xs font-mono text-ink-400 block mb-1">DISCIPLINES</span>
+          <h2 class="font-serif text-2xl font-normal text-ink-900 mb-2">Subject Knowledge</h2>
+          <span class="text-xs font-jp text-ink-400 block mb-4">学術領域・専門知能</span>
+          <p class="text-xs text-ink-600 leading-relaxed">
+            Rigorous grounding across theoretical physics, mathematical reasoning, and pedagogic framework implementation.
+          </p>
+        </div>
+
+        <div class="md:col-span-8">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div class="space-y-3">
+              <div class="flex items-baseline justify-between border-b border-ink-200/80 pb-2">
+                <span class="text-xs font-mono text-asv-sky font-medium uppercase tracking-wider">01. Physics</span>
+                <span class="text-[11px] font-jp text-ink-400">物理学</span>
+              </div>
+              <h3 class="font-serif text-lg font-medium text-ink-900">Physical Sciences</h3>
+              <p class="text-xs text-ink-600 leading-relaxed">Analytical reasoning, empirical laboratory protocols, and physical modeling.</p>
+              <ul class="pt-2 text-xs text-ink-700 space-y-2 leading-relaxed">
+                <li class="border-b border-ink-200/50 pb-1.5">• Classical Mechanics & Kinematics</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Wave Phenomena & Optics</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Electromagnetic Theory</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• AC Circuits & Electronics</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Solid-State Physics</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Green Nanoparticle Synthesis</li>
+                <li class="pb-1">• UV–Vis Spectroscopy Analysis</li>
+              </ul>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex items-baseline justify-between border-b border-ink-200/80 pb-2">
+                <span class="text-xs font-mono text-asv-rose font-medium uppercase tracking-wider">02. Mathematics</span>
+                <span class="text-[11px] font-jp text-ink-400">数理科学</span>
+              </div>
+              <h3 class="font-serif text-lg font-medium text-ink-900">Applied Mathematics</h3>
+              <p class="text-xs text-ink-600 leading-relaxed">Quantitative problem solving and analytical mathematical structures.</p>
+              <ul class="pt-2 text-xs text-ink-700 space-y-2 leading-relaxed">
+                <li class="border-b border-ink-200/50 pb-1.5">• Differential Equations (ODE/PDE)</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Multivariable & Vector Calculus</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Coordinate & Vector Geometry</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Trigonometric Analysis</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Mathematical Physics Methods</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Quantitative Data Interpretation</li>
+                <li class="pb-1">• Algorithmic Problem-Solving Logic</li>
+              </ul>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex items-baseline justify-between border-b border-ink-200/80 pb-2">
+                <span class="text-xs font-mono text-asv-sage font-medium uppercase tracking-wider">03. Education</span>
+                <span class="text-[11px] font-jp text-ink-400">教育理論</span>
+              </div>
+              <h3 class="font-serif text-lg font-medium text-ink-900">Pedagogical Theory</h3>
+              <p class="text-xs text-ink-600 leading-relaxed">Curriculum design, cognitive frameworks, and classroom strategies.</p>
+              <ul class="pt-2 text-xs text-ink-700 space-y-2 leading-relaxed">
+                <li class="border-b border-ink-200/50 pb-1.5">• Science & Mathematics Pedagogy</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Lesson & Unit Curriculum Planning</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Teaching–Learning Resource (TLR)</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Cognitive Theory of Multimedia</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Bloom’s Revised Taxonomy</li>
+                <li class="border-b border-ink-200/50 pb-1.5">• Polya’s STEM Problem Cycle</li>
+                <li class="pb-1">• Formative Learning Assessment</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. PEDAGOGICAL SKILLS REPERTOIRE -->
+    <section class="py-14 hairline">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+        <div class="md:col-span-4">
+          <span class="text-xs font-mono text-ink-400 block mb-1">REPERTOIRE</span>
+          <h2 class="font-serif text-2xl font-normal text-ink-900 mb-2">Pedagogical Skills</h2>
+          <span class="text-xs font-jp text-ink-400 block mb-4">実践的教育指導技術</span>
+          <p class="text-xs text-ink-600 leading-relaxed">
+            Deconstructing concepts, sequencing instructional modules, and creating tangible resources.
+          </p>
+        </div>
+
+        <div class="md:col-span-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 text-xs text-ink-700">
+            <div class="pb-4 border-b border-ink-200/70">
+              <span class="font-serif text-base font-medium text-ink-900 block mb-1">Concept Deconstruction</span>
+              <p class="text-ink-600 leading-relaxed">Deconstructing intricate physical theorems and multivariable equations into clear cognitive stages that learners can grasp incrementally.</p>
+            </div>
+            <div class="pb-4 border-b border-ink-200/70">
+              <span class="font-serif text-base font-medium text-ink-900 block mb-1">Instructional Planning</span>
+              <p class="text-ink-600 leading-relaxed">Designing unit curricula, laboratory experiments, and structured lesson timelines aligned with modern pedagogy standards.</p>
+            </div>
+            <div class="pb-4 border-b border-ink-200/70">
+              <span class="font-serif text-base font-medium text-ink-900 block mb-1">Teaching–Learning Resources (TLR)</span>
+              <p class="text-ink-600 leading-relaxed">Authoring interactive learning guides, tactile demonstration apparatus, and concept visualization worksheets for classroom engagement.</p>
+            </div>
+            <div class="pb-4 border-b border-ink-200/70">
+              <span class="font-serif text-base font-medium text-ink-900 block mb-1">Scientific Documentation</span>
+              <p class="text-ink-600 leading-relaxed">Methodical laboratory record-keeping, spectroscopic data recording, and formal empirical research reporting with LaTeX and Jupyter.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-16 hairline flex flex-col sm:flex-row items-baseline justify-between gap-4 text-xs font-mono text-ink-400">
+      <div>
+        <span class="font-serif font-medium text-ink-800 text-sm block">Aryan Mewa</span>
+        <span>Integrated B.Sc.–B.Ed. in Physics • IIT Jodhpur</span>
+      </div>
+      <div class="text-right">
+        <span class="font-jp block text-ink-400 text-[11px]">聲の形 — 光と静けさの記録</span>
+        <span>© 2026 Aryan Mewa. All rights reserved.</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileCloseBtn = document.getElementById('mobile-close-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    function openMobileMenu() { mobileDrawer.classList.remove('translate-x-full'); mobileOverlay.classList.remove('opacity-0', 'pointer-events-none'); document.body.style.overflow = 'hidden'; }
+    function closeMobileMenu() { mobileDrawer.classList.add('translate-x-full'); mobileOverlay.classList.add('opacity-0', 'pointer-events-none'); document.body.style.overflow = ''; }
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMobileMenu);
+    if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeMobileMenu);
+    if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileMenu);
+
+    (function initLightMotes() {
+      const canvas = document.getElementById('ambient-canvas'); if (!canvas) return;
+      const ctx = canvas.getContext('2d'); let width, height, particles = [];
+      function resize() { width = canvas.width = window.innerWidth; height = canvas.height = window.innerHeight; }
+      window.addEventListener('resize', resize); resize();
+      const colors = ['rgba(214,228,238,0.40)', 'rgba(236,202,201,0.35)', 'rgba(215,229,220,0.30)', 'rgba(251,238,215,0.45)'];
+      for (let i = 0; i < 22; i++) {
+        particles.push({ x: Math.random() * width, y: Math.random() * height, radius: Math.random() * 2.2 + 0.8, color: colors[Math.floor(Math.random() * colors.length)], vx: (Math.random() - 0.5) * 0.22, vy: -Math.random() * 0.35 - 0.1 });
+      }
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => { p.x += p.vx; p.y += p.vy; if (p.y < -10) { p.y = height + 10; p.x = Math.random() * width; } if (p.x < -10) p.x = width + 10; if (p.x > width + 10) p.x = -10; ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); ctx.fillStyle = p.color; ctx.fill(); });
+        requestAnimationFrame(render);
+      }
+      render();
+    })();
+  </script>
+</body>
+</html>

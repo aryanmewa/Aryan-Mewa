@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Aryan Mewa | Activities &amp; Moments</title>
+  <meta name="description" content="Photographs from events, festivals, media-team work, filming, teaching and projects by Aryan Mewa.">
+  <meta name="theme-color" content="#F4F3EF">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="atmos" aria-hidden="true"></div>
+<div class="beam" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav" data-open="false">
+  <div class="nav__in">
+    <a class="brand" href="index.html" aria-label="Aryan Mewa, home">Aryan Mewa<small>IIT Jodhpur</small></a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav aria-label="Primary"><ul class="nav__links" id="site-nav"><li><a href="index.html">Home</a></li><li><a href="teaching.html">Teaching</a></li><li><a href="projects.html">Projects</a></li><li><a href="experience.html">Experience</a></li><li><a href="gallery.html" aria-current="page">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+  </div>
+</header>
+<main id="main">
+<div class="scene" aria-hidden="true">
+  <img class="layer" data-depth="1" src="assets/scenes/gallery-sky.svg" alt="">
+  <img class="layer" data-depth="0.55" src="assets/scenes/gallery-mid.svg" alt="">
+  <img class="layer" data-depth="0.2" src="assets/scenes/gallery-fore.svg" alt="">
+</div>
+<header class="pagehead" aria-labelledby="page-title">
+  <div class="wrap">
+    <p class="kicker reveal">04 / Moments</p>
+    <h1 id="page-title" class="reveal">Gallery</h1>
+    <p class="scene__lede reveal" style="--d:.15s">Frames from events, festivals, film sets, classrooms and projects.</p>
+  </div>
+</header>
+
+<section class="gallery" aria-label="Photographs">
+  <div class="wrap">
+    <div class="gtools reveal">
+      <span class="gtools__count" id="gallery-count" aria-live="polite">&nbsp;</span>
+      <div class="gtools__actions">
+        <button type="button" class="btn btn--solid" data-open-add><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Add photos</button>
+      </div>
+    </div>
+    <p class="gnote" data-owner-only><strong>Added here, kept here.</strong> Photos you add with this button are stored in this browser on this device only; other visitors will not see them. To publish photos on the live site, copy them into <code>assets/gallery/</code> and list them in <code>assets/config.js</code> (see the README). Letting visitors upload for everyone would need a shared backend and image storage.</p>
+    <p class="gnote" id="gallery-storage-warn" hidden><strong>Heads up:</strong> this browser is blocking local storage, so added photos will last only until you leave this page.</p>
+    <div id="gallery-root"></div>
+    <p class="sr-only" id="gallery-live" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<div class="lb" id="lightbox" data-open="false" role="dialog" aria-modal="true" aria-label="Photograph viewer">
+  <div class="lb__bar"><span class="lb__count"></span><button type="button" data-lb-close>Close</button></div>
+  <div class="lb__stage">
+    <button type="button" class="lb__nav lb__nav--prev" aria-label="Previous photograph">&larr;</button>
+    <img alt="">
+    <button type="button" class="lb__nav lb__nav--next" aria-label="Next photograph">&rarr;</button>
+  </div>
+  <div class="lb__cap"></div>
+</div>
+
+<dialog class="dlg" id="add-dlg" aria-labelledby="add-title">
+  <form class="dlg__in" id="add-form" onsubmit="return false">
+    <div class="dlg__head"><h2 id="add-title">Add photographs</h2><button type="button" class="btn" data-close>Close</button></div>
+    <div class="dlg__body">
+      <label class="drop" id="drop" for="file-input"><input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" multiple>
+        <strong>Choose photographs</strong>or drop them here &middot; JPG, PNG, WebP, GIF or AVIF &middot; up to 15&nbsp;MB each</label>
+      <p class="rule-note">Large photos are scaled to 2400&nbsp;px on the long side, keeping their proportions. They stay in this browser only.</p>
+      <ul class="errs" id="errs" aria-live="polite"></ul>
+      <div class="bulk" id="bulk" hidden>
+        <div class="field"><label for="bulk-activity">Activity / event (applies to all below)</label><input type="text" id="bulk-activity" maxlength="120" placeholder="e.g. Prometeo 2026"></div>
+        <div class="field"><label for="bulk-date">Date (applies to all below)</label><input type="date" id="bulk-date"></div>
+      </div>
+      <ul class="prev" id="prev"></ul>
+    </div>
+    <div class="dlg__foot"><span class="msg" id="add-msg" aria-live="polite"></span>
+      <button type="button" class="btn" data-close>Cancel</button>
+      <button type="button" class="btn btn--solid" id="add-go" disabled>Add to gallery</button></div>
+  </form>
+</dialog>
+</main>
+<footer class="foot">
+  <img class="foot__rule" src="assets/scenes/hand-rule.svg" alt="" aria-hidden="true">
+  <img class="foot__sprig" src="assets/scenes/sprig.svg" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div>
+      <span class="foot__name">Aryan Mewa</span>
+      <small>Integrated B.Sc.&ndash;B.Ed. in Physics &bull; IIT Jodhpur</small>
+    </div>
+    <div class="foot__right">
+      
+      <span class="s">&copy; 2026 Aryan Mewa. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/config.js" defer></script>
+<script src="assets/site.js" defer></script>
+<script src="assets/media.js" defer></script>
+<script src="assets/gallery.js" defer></script>
+</body>
+</html>
